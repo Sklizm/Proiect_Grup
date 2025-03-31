@@ -60,10 +60,6 @@ CREATE TABLE Note (
     Data_Acordarii DATE DEFAULT GETDATE()
 );
 
-ALTER TABLE Profesori ADD Catedra NVARCHAR(60)
-
-ALTER TABLE Grupe ADD Specialitate NVARCHAR(60)
-
 INSERT INTO Grupe (Nume, An_Studiu, Specialitate) VALUES
 ('P-2323', 1, 'Informatica'),
 ('W-2321', 1, 'Matematica'),
@@ -88,27 +84,27 @@ INSERT INTO Grupe (Nume, An_Studiu, Specialitate) VALUES
 
 
 -- 7. Inserarea grupelor
-INSERT INTO Studenti (Nume, Prenume, Data_Nasterii, ID_Grupa, Email, Localitate) VALUES 
-('Popescu', 'Ion', '2003-05-12', 1, 'ion.popescu1@example.com', 'Chisinau'),
-('Ionescu', 'Maria', '2002-08-24', 1, 'maria.ionescu1@example.com', 'Balti'),
-('Radu', 'Andrei', '2003-01-17', 2, 'andrei.radu1@example.com', 'Cahul'),
-('Georgescu', 'Daniel', '2003-06-15', 1, 'daniel.georgescu@example.com', 'Chisinau'),
-('Matei', 'Elena', '2002-07-22', 1, 'elena.matei@example.com', 'Orhei'),
-('Vasile', 'Alexandru', '2003-04-10', 2, 'alex.vasile@example.com', 'Balti'),
-('Marin', 'Cristina', '2003-09-13', 3, 'cristina.marin@example.com', 'Chisinau'),
-('Tudor', 'Florin', '2002-11-30', 4, 'florin.tudor@example.com', 'Cahul'),
-('Dobre', 'Mihai', '2003-02-21', 5, 'mihai.dobre@example.com', 'Chisinau'),
-('Stan', 'Ana', '2002-10-10', 6, 'ana.stan@example.com', 'Balti'),
-('Constantin', 'Ioana', '2003-03-15', 7, 'ioana.constantin@example.com', 'Orhei'),
-('Grigore', 'Roxana', '2002-07-25', 8, 'roxana.grigore@example.com', 'Cahul'),
-('Sandu', 'Victor', '2003-06-19', 9, 'victor.sandu@example.com', 'Chisinau'),
-('Popa', 'Larisa', '2003-04-07', 10, 'larisa.popa@example.com', 'Balti'),
-('Ciobanu', 'George', '2002-12-20', 11, 'george.ciobanu@example.com', 'Orhei'),
-('Petrescu', 'Alina', '2003-05-30', 12, 'alina.petrescu@example.com', 'Cahul'),
-('Fodor', 'Gabriel', '2002-09-15', 13, 'gabriel.fodor@example.com', 'Chisinau'),
-('Marinescu', 'Diana', '2003-08-10', 14, 'diana.marinescu@example.com', 'Balti'),
-('Neagu', 'Stefan', '2003-01-05', 15, 'stefan.neagu@example.com', 'Orhei'),
-('Nistor', 'Madalina', '2002-11-22', 16, 'madalina.nistor@example.com', 'Cahul');
+INSERT INTO Studenti (Nume, Prenume, Data_Nasterii, ID_Grupa, Email, ID_Localitate) VALUES 
+('Popescu', 'Ion', '2003-05-12', 1, 'ion.popescu1@example.com', 1),
+('Ionescu', 'Maria', '2002-08-24', 1, 'maria.ionescu1@example.com', 2),
+('Radu', 'Andrei', '2003-01-17', 2, 'andrei.radu1@example.com', 3),
+('Georgescu', 'Daniel', '2003-06-15', 1, 'daniel.georgescu@example.com', 4),
+('Matei', 'Elena', '2002-07-22', 1, 'elena.matei@example.com', 5),
+('Vasile', 'Alexandru', '2003-04-10', 2, 'alex.vasile@example.com', 6),
+('Marin', 'Cristina', '2003-09-13', 3, 'cristina.marin@example.com', 7),
+('Tudor', 'Florin', '2002-11-30', 4, 'florin.tudor@example.com', 8),
+('Dobre', 'Mihai', '2003-02-21', 5, 'mihai.dobre@example.com', 9),
+('Stan', 'Ana', '2002-10-10', 6, 'ana.stan@example.com', 10),
+('Constantin', 'Ioana', '2003-03-15', 7, 'ioana.constantin@example.com', 11),
+('Grigore', 'Roxana', '2002-07-25', 8, 'roxana.grigore@example.com', 12),
+('Sandu', 'Victor', '2003-06-19', 9, 'victor.sandu@example.com', 13),
+('Popa', 'Larisa', '2003-04-07', 10, 'larisa.popa@example.com', 14),
+('Ciobanu', 'George', '2002-12-20', 11, 'george.ciobanu@example.com', 15),
+('Petrescu', 'Alina', '2003-05-30', 12, 'alina.petrescu@example.com', 16),
+('Fodor', 'Gabriel', '2002-09-15', 13, 'gabriel.fodor@example.com', 17),
+('Marinescu', 'Diana', '2003-08-10', 14, 'diana.marinescu@example.com', 18),
+('Neagu', 'Stefan', '2003-01-05', 15, 'stefan.neagu@example.com', 19),
+('Nistor', 'Madalina', '2002-11-22', 16, 'madalina.nistor@example.com', 20);
 
 
 
@@ -147,10 +143,10 @@ INSERT INTO Cursuri (Nume, ID_Profesor) VALUES
 
 -- Adăugarea de noi note
 INSERT INTO Note (ID_Student, ID_Curs, Nota) VALUES 
-(4, 4, 6.0), (5, 5, 5.0), (6, 6, 4.5),
-(7, 7, 9.0), (8, 8, 8.5), (9, 9, 7.0), (10, 10, 6.5), (11, 11, 9.5), (12, 12, 8.0),
-(13, 13, 7.5), (14, 14, 6.0), (15, 15, 5.0), (16, 16, 4.5), (17, 17, 9.0), (18, 18, 8.5),
-(19, 19, 7.0), (20, 20, 6.5), (21, 5, 8.9), (22,6,9),(23, 8, 7.6);
+(1, 4, 6.0), (2, 5, 5.0), (3, 6, 4.5),
+(4, 7, 9.0), (5, 8, 8.5), (6, 9, 7.0), (7, 10, 6.5), (8, 11, 9.5), (9, 12, 8.0),
+(10, 13, 7.5), (11, 14, 6.0), (12, 15, 5.0), (13, 16, 4.5), (14, 17, 9.0), (15,18, 8.5),
+(16, 19, 7.0), (17, 20, 6.5), (18, 5, 8.9), (19,6,9),(20, 8, 7.6);
 
 -- Adăugarea de noi raioane
 INSERT INTO Raioane (Nume) VALUES 
@@ -185,12 +181,12 @@ GROUP BY G.Nume;
 SELECT P.Nume, P.Prenume, C.Nume AS Curs 
 FROM Profesori P LEFT JOIN Cursuri C ON P.ID_Profesor = C.ID_Profesor;
 
-UPDATE Studenti SET Localitate = 'Chisinau' WHERE Nume = 'Popescu';
-UPDATE Studenti SET Localitate = 'Balti' WHERE Nume = 'Ionescu';
-UPDATE Studenti SET Localitate = 'Cahul' WHERE Nume = 'Radu';
-UPDATE Studenti SET Localitate = 'Chisinau' WHERE Nume = 'Georgescu';
-UPDATE Studenti SET Localitate = 'Orhei' WHERE Nume = 'Matei';
-UPDATE Studenti SET Localitate = 'Balti' WHERE Nume = 'Vasile';
+UPDATE Studenti SET ID_Localitate = 1 WHERE Nume = 'Popescu';
+UPDATE Studenti SET ID_Localitate = 2 WHERE Nume = 'Ionescu';
+UPDATE Studenti SET ID_Localitate = 3 WHERE Nume = 'Radu';
+UPDATE Studenti SET ID_Localitate = 1 WHERE Nume = 'Georgescu';
+UPDATE Studenti SET ID_Localitate = 4 WHERE Nume = 'Matei';
+UPDATE Studenti SET ID_Localitate = 2 WHERE Nume = 'Vasile';
 
 -- Interogările solicitate
 -- Afișați lista grupelor, în care sunt elevi, ce studiază pe note negative.
